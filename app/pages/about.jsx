@@ -1,9 +1,7 @@
-export default function Page() {
+export function About() {
     return (
         <div className="flex flex-col items-center justify-center w-full max-w-5xl mx-auto py-16">
-            <p className="text-lg text-center mb-8">
-                First page
-            </p>
+            <p>About page</p>
         </div>
     );
 }

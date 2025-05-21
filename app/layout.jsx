@@ -1,11 +1,11 @@
 import '../styles/globals.css';
-import { Footer } from '../components/footer';
 import { Header } from '../components/header';
+import { Footer } from '../components/footer';
 
 export const metadata = {
     title: {
         template: '%s | Netlify',
-        default: 'Netlify Starter'
+        default: 'Gabriel Marinho'
     }
 };
 
