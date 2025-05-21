@@ -4,3 +4,9 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    labels:
+      - "npm"
+    commit-message:
+      prefix: fix
+      prefix-development: chore
+      include: scope
