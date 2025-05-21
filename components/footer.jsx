@@ -4,8 +4,8 @@ export function Footer() {
             <p className="text-sm">© 2025 Gabriel Marinho</p>
             <nav>
                 <ul className="flex space-x-4">
-                    <li><a href="/privacy" className="hover:underline">privacy policy</a></li>
-                    <li><a href="/tos" className="hover:underline">tos</a></li>
+                    <li><Link href="/privacy" className="hover:underline">privacy policy</Link></li>
+                    <li><Link href="/tos" className="hover:underline">tos</Link></li>
                 </ul>
             </nav>
         </footer>

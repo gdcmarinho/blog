@@ -4,11 +4,11 @@ export function Header() {
             <h1 className="text-2xl font-bold logo"><a href="/">Gabriel Marinho</a></h1>
             <nav>
                 <ul className="flex space-x-4">
-                    <li><a href="/blog" className="hover:underline">blog</a></li>
+                    <li><Link href="/blog" className="hover:underline">blog</Link></li>
                     <li>/</li>
-                    <li><a href="/work" className="hover:underline">work</a></li>
+                    <li><Link href="/work" className="hover:underline">work</Link></li>
                     <li>/</li>
-                    <li><a href="/contact" className="hover:underline">contact</a></li>
+                    <li><Link href="/contact" className="hover:underline">contact</Link></li>
                 </ul>
             </nav>
         </header>
