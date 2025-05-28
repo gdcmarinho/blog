@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
                 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
                 <link rel="manifest" href="/site.webmanifest"/>
             </head>
-            <body className="antialiased w-screen h-screen text-white bg-stone-900">
+            <body className="antialiased w-screen h-screen text-white bg-black text-[#a1a1a1]">
                 <div className="flex flex-col w-full h-full grow">
                     <Header />
                     <main className="grow">{children}</main>
