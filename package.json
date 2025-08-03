@@ -12,7 +12,7 @@
         "@netlify/blobs": "^10.0.4",
         "blobshape": "^1.0.0",
         "bright": "^1.0.0",
-        "markdown-to-jsx": "^7.7.8",
+        "markdown-to-jsx": "^7.7.10",
         "next": "15.3.4",
         "react": "18.3.1",
         "react-dom": "18.3.1",
