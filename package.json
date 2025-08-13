@@ -9,20 +9,20 @@
         "lint": "next lint"
     },
     "dependencies": {
-        "@netlify/blobs": "^10.0.0",
+        "@netlify/blobs": "^10.0.4",
         "blobshape": "^1.0.0",
         "bright": "^1.0.0",
-        "markdown-to-jsx": "^7.7.8",
+        "markdown-to-jsx": "^7.7.12",
         "next": "15.3.4",
-        "react": "18.3.1",
-        "react-dom": "18.3.1",
+        "react": "19.1.1",
+        "react-dom": "19.1.1",
         "unique-names-generator": "^4.7.1"
     },
     "devDependencies": {
         "@tailwindcss/postcss": "^4.1.8",
-        "eslint": "9.28.0",
-        "eslint-config-next": "15.3.3",
-        "postcss": "^8.5.6",
-        "tailwindcss": "^4.1.10"
+        "eslint": "9.33.0",
+        "eslint-config-next": "15.4.5",
+        "postcss": "^8.4.36",
+        "tailwindcss": "^4.1.11"
     }
 }
