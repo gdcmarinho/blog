@@ -10,7 +10,7 @@
         "export": "next export"
     },
     "dependencies": {
-        "@netlify/blobs": "^10.0.4",
+        "@netlify/blobs": "^10.0.8",
         "blobshape": "^1.0.0",
         "bright": "^1.0.0",
         "markdown-to-jsx": "^7.7.12",
