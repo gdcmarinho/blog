@@ -3,7 +3,7 @@ export default function Contact() {
         <div className="w-full mx-auto max-w-screen-sm p-4">
             <h1 className="text-3xl font-bold mb-6">Contact Us</h1>
             <p className="mb-8 text-stone-400">If you have any questions, feel free to reach out!</p>
-            <form name="contact" netlify className="space-y-6">
+            <form name="contact" className="space-y-6">
                 <div>
                     <label htmlFor="name" className="block text-sm font-medium text-stone-300 mb-1">
                         Name:

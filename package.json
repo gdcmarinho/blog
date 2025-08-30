@@ -1,6 +1,6 @@
 {
-    "name": "next-netlify-platform-starter",
-    "version": "0.1.0",
+    "name": "next-gabrielmarinho-blog",
+    "version": "1.0.0",
     "private": true,
     "scripts": {
         "dev": "next dev",
@@ -10,9 +10,7 @@
         "export": "next export"
     },
     "dependencies": {
-        "@netlify/blobs": "^10.0.8",
-        "blobshape": "^1.0.0",
-        "bright": "^1.0.0",
+        "gray-matter": "^4.0.3",
         "markdown-to-jsx": "^7.7.13",
         "next": "15.5.0",
         "react": "19.1.1",
