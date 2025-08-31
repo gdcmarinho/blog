@@ -8,7 +8,7 @@ export default async function PostsIndex() {
         <div className="w-full mx-auto max-w-screen-sm text-[#a1a1a1]">
             <ul>
                 {allPostsData.map(({ id, date, title }) => (
-                    <li key={id} className="cursor-pointer">
+                    <li key={id} className="cursor-pointer mb-4">
                         <Link href={`/posts/${id}`}>
                             <span className="text-lg font-semibold text-white">{title}</span>
                         </Link>

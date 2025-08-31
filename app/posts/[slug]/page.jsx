@@ -19,9 +19,7 @@ export default async function Post({ params }) {
             <p className="mb-5">
                 <small>Posted on {postData.date}</small>
             </p>
-
-            {}
-            <Markdown>{postData.content}</Markdown>
+            <Markdown className="markdown">{postData.content}</Markdown>
         </article>
     );
 }

@@ -1,5 +1,5 @@
 ---
-title: 'E se...'
+title: 'E se... (versão em português)'
 date: '2025-08-31'
 ---
 
