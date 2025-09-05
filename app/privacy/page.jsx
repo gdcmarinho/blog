@@ -23,10 +23,10 @@ export default async function PrivacyPage() {
             <br />
             <ul className="list-disc list-inside my-2">
                 <li>
-                    <b>Visitor's IP address:</b> To serve the content and for security logging.
+                    <b>Visitor&#39;s IP address:</b> To serve the content and for security logging.
                 </li>
                 <li>
-                    <b>User-Agent string:</b> Information about the visitor's browser and operating system, used for
+                    <b>User-Agent string:</b> Information about the visitor&#39;s browser and operating system, used for
                     compatibility and security.
                 </li>
                 <li>
@@ -51,7 +51,7 @@ export default async function PrivacyPage() {
             <h2 className="text-l font-bold">Links to Other Websites</h2>
             <p>
                 My website may contain links to other websites that are not operated by me. If you click on a
-                third-party link, you will be directed to that third party's site. I have no control over and assume no
+                third-party link, you will be directed to that third party&#39;s site. I have no control over and assume no
                 responsibility for the content, privacy policies, or practices of any third-party sites or services.
             </p>
             <br />
