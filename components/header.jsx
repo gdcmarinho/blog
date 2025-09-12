@@ -18,7 +18,7 @@ export function Header() {
                     </li>
                     <li className="select-none">/</li>
                     <li>
-                        <Link href="/work" className="hover:underline">
+                        <Link href="/GabrielMarinho_CV.pdf" className="hover:underline">
                             curriculum
                         </Link>
                     </li>
