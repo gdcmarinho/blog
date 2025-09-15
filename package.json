@@ -12,7 +12,7 @@
     "dependencies": {
         "gray-matter": "^4.0.3",
         "markdown-to-jsx": "^7.7.13",
-        "next": "15.5.2",
+        "next": "15.5.3",
         "react": "19.1.1",
         "react-dom": "19.1.1",
         "unique-names-generator": "^4.7.1"
