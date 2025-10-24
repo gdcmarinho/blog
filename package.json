@@ -13,14 +13,14 @@
         "gray-matter": "^4.0.3",
         "markdown-to-jsx": "^7.7.14",
         "next": "15.5.5",
-        "react": "19.1.1",
-        "react-dom": "19.1.1",
+        "react": "19.2.0",
+        "react-dom": "19.2.0",
         "unique-names-generator": "^4.7.1"
     },
     "devDependencies": {
         "@tailwindcss/postcss": "^4.1.14",
         "@types/node": "24.9.0",
-        "@types/react": "19.1.15",
+        "@types/react": "19.2.2",
         "eslint": "9.37.0",
         "eslint-config-next": "15.5.4",
         "postcss": "^8.4.36",
