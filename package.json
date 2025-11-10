@@ -18,7 +18,7 @@
         "unique-names-generator": "^4.7.1"
     },
     "devDependencies": {
-        "@tailwindcss/postcss": "^4.1.16",
+        "@tailwindcss/postcss": "^4.1.17",
         "@types/node": "24.10.0",
         "@types/react": "19.2.2",
         "eslint": "9.39.0",
