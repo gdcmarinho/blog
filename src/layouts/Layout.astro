@@ -3,6 +3,8 @@ import { Font } from "astro:assets";
 import Menu from "../components/Menu.astro";
 import Footer from "../components/Footer.astro";
 import "../layouts/global.css";
+
+const { title = "Gabriel Marinho", description } = Astro.props;
 ---
 
 <!doctype html>
@@ -13,7 +15,8 @@ import "../layouts/global.css";
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Gabriel Marinho</title>
+		<title>{title}</title>
+		{description ? <meta name="description" content={description} /> : null}
 		<Font cssVariable="--font-inter" />
 	</head>
 	<body>

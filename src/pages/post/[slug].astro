@@ -1,0 +1,135 @@
+---
+import { getCollection, getEntry, render } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+
+const formatDate = (date) => new Intl.DateTimeFormat("en-GB").format(date);
+
+export async function getStaticPaths() {
+	const posts = await getCollection("blog");
+
+	return posts.map((post) => ({
+		params: { slug: post.id },
+	}));
+}
+
+const { slug } = Astro.params;
+const post = await getEntry("blog", slug);
+
+if (!post) {
+	throw new Error(`Blog post not found: ${slug}`);
+}
+
+const { Content } = await render(post);
+---
+
+<Layout
+	title={`${post.data.title} | Gabriel Marinho`}
+	description={post.data.description}
+>
+	<main class="post-page">
+		<article>
+			<header class="post-header">
+				<p class="post-title">{post.data.title}</p>
+				<p class="description">{post.data.description}</p>
+			</header>
+
+			<div class="content">
+				<Content />
+			</div>
+
+			<div class="metadata-container">
+				<div class="post-meta">
+					<time datetime={post.data.pubDate.toISOString()}>
+						Published on {formatDate(post.data.pubDate)}
+					</time>
+				</div>
+				{
+					post.data.tags.length > 0 ? (
+						<ul
+							class="tag-list"
+							aria-label={`Tags for post ${post.data.title}`}
+						>
+							{post.data.tags.map((tag) => (
+								<li>{tag}</li>
+							))}
+						</ul>
+					) : null
+				}
+			</div>
+			<a class="back-link" href="/blog">← Back to posts</a>
+		</article>
+	</main>
+</Layout>
+
+<style>
+	.post-page {
+		max-width: 46rem;
+	}
+
+	.back-link {
+		display: inline-flex;
+		margin-top: 15px;
+		margin-bottom: 1.5rem;
+		color: #181818;
+		font-size: 0.95rem;
+	}
+
+	.post-header {
+		display: grid;
+		margin-bottom: 2.5rem;
+	}
+
+	.post-header .post-title {
+		font-size: 18px;
+		margin: 1rem 0 0 0;
+	}
+
+	.description {
+		margin: 0;
+		color: #787878;
+	}
+
+	.metadata-container {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-top: 3vh;
+	}
+
+	.post-meta {
+		display: flex;
+		color: #bbbbbb;
+		font-size: 12px;
+	}
+
+	.tag-list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.tag-list li {
+		border: 1px solid #ebebeb;
+		border-radius: 999px;
+		padding: 0.3rem 0.7rem;
+		font-size: 12px;
+		color: #787878;
+	}
+
+	.content :global(h2) {
+		margin-top: 2rem;
+	}
+
+	.content :global(p),
+	.content :global(li) {
+		line-height: 1.8;
+	}
+
+	.content :global(img) {
+		max-width: 100%;
+		border-radius: 12px;
+	}
+</style>
