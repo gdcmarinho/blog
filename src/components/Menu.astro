@@ -1,0 +1,62 @@
+---
+const { pathname } = Astro.url;
+
+const normalizePath = (value: string) => value.replace(/\/$/, "") || "/";
+
+const isActive = (href: string) => {
+    return normalizePath(pathname) === normalizePath(href);
+};
+---
+<header>
+    <div class="profile">
+        <a href="/" class="name">Gabriel Marinho</a>
+        <span class="role">Software Engineer</span>
+    </div>
+
+    <ul>
+        <li><a href="/about" class:list={["menu-link", { active: isActive("/about") }]}>About</a></li>
+        <li><a href="/" class:list={["menu-link", { active: isActive("/") }]}>Blog</a></li>
+        <li><a href="/contact" class:list={["menu-link", { active: isActive("/contact") }]}>Contact</a></li>
+    </ul>
+</header>
+
+<style>
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    ul {
+        list-style-type: none;
+        display: flex;
+    }
+
+    li {
+        cursor: pointer;
+        padding: 0 5px;
+    }
+
+    .profile {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .name {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    .role {
+        color: #787878;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    .menu-link.active {
+        color: #181818;
+    }
+</style>

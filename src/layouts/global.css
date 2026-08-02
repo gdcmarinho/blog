@@ -1,0 +1,42 @@
+body {
+    font-family: var(--font-inter), sans-serif;
+    font-size: 14px;
+    color: #181818;
+    box-sizing: border-box;
+    padding: clamp(4.5rem, 16vh, 12rem) clamp(12rem, 40vw, 60vw);
+}
+
+a,
+a:visited {
+    color: #787878;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+}
+
+a:hover {
+    color: #b8b8b8;
+}
+
+.unselectable {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Safari */
+  -moz-user-select: none;      /* Old Firefox */
+  -ms-user-select: none;       /* Internet Explorer/Edge */
+  user-select: none;           /* Standard syntax */
+}
+
+@media (max-width: 1950px) {
+    body {
+        padding: 5rem 4rem;
+    }
+}
+
+@media (max-width: 720px) {
+    body {
+        padding: 3rem 5rem;
+    }
+
+    .role {
+        display: none;
+    }
+}
