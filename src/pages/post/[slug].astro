@@ -123,6 +123,22 @@ const { Content } = await render(post);
 		margin-top: 2rem;
 	}
 
+	.content :global(strong) {
+		font-weight: 500;
+		margin: 0 -0.4em;
+		padding: 0.1em 0.4em;
+		border-radius: 0.8em 0.3em;
+		background: transparent;
+		background-image: linear-gradient(
+			to right,
+			rgba(255, 77, 7, 0.05),
+			rgba(255, 77, 7, 0.4) 4%,
+			rgba(255, 77, 7, 0.15)
+		);
+		-webkit-box-decoration-break: clone;
+		box-decoration-break: clone;
+	}
+
 	.content :global(p),
 	.content :global(li) {
 		line-height: 1.8;
