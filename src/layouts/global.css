@@ -4,6 +4,9 @@ body {
     color: #181818;
     box-sizing: border-box;
     padding: clamp(4.5rem, 16vh, 12rem) clamp(12rem, 40vw, 60vw);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 a,

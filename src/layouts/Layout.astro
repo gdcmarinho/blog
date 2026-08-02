@@ -1,8 +1,10 @@
 ---
-import { Font } from 'astro:assets';
+import { Font } from "astro:assets";
 import Menu from "../components/Menu.astro";
+import Footer from "../components/Footer.astro";
 import "../layouts/global.css";
 ---
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -15,8 +17,11 @@ import "../layouts/global.css";
 		<Font cssVariable="--font-inter" />
 	</head>
 	<body>
-		<Menu />
-		<slot />
+		<div>
+			<Menu />
+			<slot />
+		</div>
+		<Footer />
 	</body>
 </html>
 
