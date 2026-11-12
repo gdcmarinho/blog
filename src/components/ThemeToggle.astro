@@ -1,0 +1,153 @@
+<button
+	id="theme-toggle"
+	type="button"
+	class="theme-toggle"
+	aria-label="Toggle dark mode"
+	title="Toggle theme"
+>
+	<svg
+		class="icon sun-icon"
+		xmlns="http://www.w3.org/2000/svg"
+		width="15"
+		height="15"
+		viewBox="0 0 24 24"
+		fill="none"
+		stroke="currentColor"
+		stroke-width="2"
+		stroke-linecap="round"
+		stroke-linejoin="round"
+		aria-hidden="true"
+	>
+		<circle cx="12" cy="12" r="5"></circle>
+		<line x1="12" y1="1" x2="12" y2="3"></line>
+		<line x1="12" y1="21" x2="12" y2="23"></line>
+		<line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+		<line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+		<line x1="1" y1="12" x2="3" y2="12"></line>
+		<line x1="21" y1="12" x2="23" y2="12"></line>
+		<line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+		<line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+	</svg>
+	<svg
+		class="icon moon-icon"
+		xmlns="http://www.w3.org/2000/svg"
+		width="15"
+		height="15"
+		viewBox="0 0 24 24"
+		fill="none"
+		stroke="currentColor"
+		stroke-width="2"
+		stroke-linecap="round"
+		stroke-linejoin="round"
+		aria-hidden="true"
+	>
+		<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+	</svg>
+</button>
+
+<script>
+	const STORAGE_KEY = "theme";
+	const darkQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
+	const getSystemTheme = (): "dark" | "light" =>
+		darkQuery.matches ? "dark" : "light";
+
+	const getEffectiveTheme = (): "dark" | "light" => {
+		const rootTheme = document.documentElement.dataset.theme;
+		if (rootTheme === "dark" || rootTheme === "light") {
+			return rootTheme;
+		}
+		return getSystemTheme();
+	};
+
+	const updateButtonA11y = (theme: "dark" | "light") => {
+		const button = document.getElementById("theme-toggle");
+		if (!button) return;
+		const isDark = theme === "dark";
+		button.setAttribute("aria-pressed", String(isDark));
+		button.setAttribute(
+			"aria-label",
+			isDark ? "Switch to light mode" : "Switch to dark mode"
+		);
+		button.setAttribute(
+			"title",
+			isDark ? "Switch to light mode" : "Switch to dark mode"
+		);
+	};
+
+	const applyTheme = (theme: "dark" | "light", persist = false) => {
+		document.documentElement.dataset.theme = theme;
+		if (persist) {
+			try {
+				if (theme === getSystemTheme()) {
+					localStorage.removeItem(STORAGE_KEY);
+				} else {
+					localStorage.setItem(STORAGE_KEY, theme);
+				}
+			} catch {
+				// Ignore storage errors (e.g. private browsing restrictions)
+			}
+		}
+		updateButtonA11y(theme);
+	};
+
+	const initThemeToggle = () => {
+		const button = document.getElementById("theme-toggle");
+		updateButtonA11y(getEffectiveTheme());
+
+		button?.addEventListener("click", () => {
+			const nextTheme = getEffectiveTheme() === "dark" ? "light" : "dark";
+			applyTheme(nextTheme, true);
+		});
+	};
+
+	darkQuery.addEventListener("change", (event) => {
+		try {
+			const storedPreference = localStorage.getItem(STORAGE_KEY);
+			if (storedPreference !== "dark" && storedPreference !== "light") {
+				applyTheme(event.matches ? "dark" : "light", false);
+			}
+		} catch {
+			applyTheme(event.matches ? "dark" : "light", false);
+		}
+	});
+
+	initThemeToggle();
+	document.addEventListener("astro:after-swap", initThemeToggle);
+</script>
+
+<style>
+	.theme-toggle {
+		background: none;
+		border: none;
+		padding: 2px;
+		margin: 0;
+		cursor: pointer;
+		color: var(--color-muted);
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		transition: color 0.2s ease-in-out;
+	}
+
+	.theme-toggle:hover {
+		color: var(--color-link-hover);
+	}
+
+	.theme-toggle:focus-visible {
+		outline: 1px solid var(--color-border);
+		border-radius: 4px;
+	}
+
+	.icon {
+		display: none;
+	}
+
+	:global(:root:not([data-theme="dark"])) .moon-icon {
+		display: block;
+	}
+
+	:global(:root[data-theme="dark"]) .sun-icon {
+		display: block;
+	}
+</style>

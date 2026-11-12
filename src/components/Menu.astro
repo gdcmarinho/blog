@@ -1,4 +1,6 @@
 ---
+import ThemeToggle from "./ThemeToggle.astro";
+
 const { pathname } = Astro.url;
 
 const normalizePath = (value: string) => value.replace(/\/$/, "") || "/";
@@ -18,6 +20,7 @@ const isActive = (href: string) => {
         <li><a href="/blog" class:list={["menu-link", { active: isActive("/blog") }]}>Blog</a></li>
         <li><a href="/uses" class:list={["menu-link", { active: isActive("/uses") }]}>Uses</a></li>
         <li><a href="/contact" class:list={["menu-link", { active: isActive("/contact") }]}>Contact</a></li>
+        <li class="theme-item"><ThemeToggle /></li>
     </ul>
 </header>
 
@@ -31,11 +34,17 @@ const isActive = (href: string) => {
     ul {
         list-style-type: none;
         display: flex;
+        align-items: center;
     }
 
     li {
         cursor: pointer;
         padding: 0 5px;
+    }
+
+    .theme-item {
+        display: flex;
+        align-items: center;
     }
 
     .profile {
@@ -49,7 +58,7 @@ const isActive = (href: string) => {
     }
 
     .role {
-        color: #787878;
+        color: var(--color-muted);
     }
 
     a {
@@ -58,6 +67,6 @@ const isActive = (href: string) => {
     }
 
     .menu-link.active {
-        color: #181818;
+        color: var(--color-text);
     }
 </style>

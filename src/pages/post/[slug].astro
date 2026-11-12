@@ -70,7 +70,7 @@ const { Content } = await render(post);
 		display: inline-flex;
 		margin-top: 15px;
 		margin-bottom: 1.5rem;
-		color: #181818;
+		color: var(--color-text);
 		font-size: 0.95rem;
 	}
 
@@ -86,7 +86,7 @@ const { Content } = await render(post);
 
 	.description {
 		margin: 0;
-		color: #787878;
+		color: var(--color-muted);
 	}
 
 	.metadata-container {
@@ -98,7 +98,7 @@ const { Content } = await render(post);
 
 	.post-meta {
 		display: flex;
-		color: #bbbbbb;
+		color: var(--color-subtle);
 		font-size: 12px;
 	}
 
@@ -112,11 +112,11 @@ const { Content } = await render(post);
 	}
 
 	.tag-list li {
-		border: 1px solid #ebebeb;
+		border: 1px solid var(--color-border);
 		border-radius: 999px;
 		padding: 0.3rem 0.7rem;
 		font-size: 12px;
-		color: #787878;
+		color: var(--color-muted);
 	}
 
 	.content :global(h2) {

@@ -70,12 +70,12 @@ const posts = (await getCollection("blog")).sort((a, b) => {
 	.post-card {
 		padding: 7px 11px;
 		border-radius: 8px;
-		background: #fff;
+		background: var(--color-surface);
 		cursor: pointer;
 	}
 
 	.post-card:hover {
-		outline: 1px solid #ebebeb;
+		outline: 1px solid var(--color-border);
 	}
 
 	.post-link {
@@ -87,16 +87,16 @@ const posts = (await getCollection("blog")).sort((a, b) => {
 
 	.post-link span {
 		margin: 0;
-		color: #181818;
+		color: var(--color-text);
 	}
 
 	.post-link p {
 		margin: 0;
 		font-size: 13px;
-		color: #787878;
+		color: var(--color-muted);
 	}
 
 	.empty-state {
-		color: #787878;
+		color: var(--color-muted);
 	}
 </style>

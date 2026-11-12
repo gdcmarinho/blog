@@ -18,6 +18,30 @@ const { title = "Gabriel Marinho", description } = Astro.props;
 		<title>{title}</title>
 		{description ? <meta name="description" content={description} /> : null}
 		<Font cssVariable="--font-inter" />
+		<script is:inline>
+			(() => {
+				try {
+					const stored = localStorage.getItem("theme");
+					const prefersDark = window.matchMedia(
+						"(prefers-color-scheme: dark)"
+					).matches;
+					const theme =
+						stored === "dark" || stored === "light"
+							? stored
+							: prefersDark
+								? "dark"
+								: "light";
+					document.documentElement.dataset.theme = theme;
+				} catch {
+					const prefersDark = window.matchMedia(
+						"(prefers-color-scheme: dark)"
+					).matches;
+					document.documentElement.dataset.theme = prefersDark
+						? "dark"
+						: "light";
+				}
+			})();
+		</script>
 	</head>
 	<body>
 		<div>
