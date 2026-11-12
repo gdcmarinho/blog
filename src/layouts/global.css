@@ -28,10 +28,13 @@ body {
     background-color: var(--color-bg);
     color: var(--color-text);
     box-sizing: border-box;
-    padding: clamp(4.5rem, 16vh, 12rem) clamp(12rem, 40vw, 60vw);
+    max-width: 42rem;
+    margin: 0 auto;
+    padding: clamp(2rem, 10vh, 7rem) clamp(1.25rem, 5vw, 2.5rem);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    gap: 3rem;
     transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
@@ -54,18 +57,9 @@ a:hover {
   user-select: none;           /* Standard syntax */
 }
 
-@media (max-width: 1950px) {
+@media (max-width: 480px) {
     body {
-        padding: 5rem 4rem;
-    }
-}
-
-@media (max-width: 720px) {
-    body {
-        padding: 3rem 5rem;
-    }
-
-    .role {
-        display: none;
+        padding: 1.75rem 1.15rem;
+        gap: 2.25rem;
     }
 }

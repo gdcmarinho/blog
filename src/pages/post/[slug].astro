@@ -91,9 +91,20 @@ const { Content } = await render(post);
 
 	.metadata-container {
 		display: flex;
+		flex-wrap: wrap;
 		align-items: center;
 		justify-content: space-between;
+		gap: 0.75rem;
 		margin-top: 3vh;
+	}
+
+	.content {
+		overflow-wrap: break-word;
+	}
+
+	.content :global(pre) {
+		overflow-x: auto;
+		max-width: 100%;
 	}
 
 	.post-meta {
